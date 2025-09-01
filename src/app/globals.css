@@ -30,13 +30,43 @@ body {
   margin: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.show_black {
+  background-color: black;
+  animation: slide-down 0.8s ease-in-out;
+  color: white;
+  width: 100%;
+  height: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.hide_black {
+  animation: slide-up 0.8s ease-in-out;
+  color: black;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes slide-up {
+  0% {
+    clip-path: rect(0 100% 100% 0);
+    background-color: black;
+  }
+  100% {
+    clip-path: rect(0 100% 0 0);
+    background-color: white;
+    color: black;
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    clip-path: rect(0 100% 0 0);
+
+    color: white;
+  }
+
+  100% {
+    clip-path: rect(0 100% 100% 0);
+    background-color: black;
+    color: white;
   }
 }
